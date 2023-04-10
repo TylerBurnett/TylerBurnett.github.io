@@ -1,15 +1,50 @@
+import "./fonts.css";
 import { createTheme } from "@mui/material";
-import { green, purple } from "@mui/material/colors";
 
-const theme = createTheme({
+const AppTheme = createTheme({
   palette: {
     primary: {
-      main: purple[500],
+      main: "#000000",
     },
     secondary: {
-      main: green[500],
+      main: "#000000",
+    },
+    background: {
+      default: "#F1F1F1",
+    },
+    text: {
+      primary: "#000000",
+    },
+  },
+  typography: {
+    h1: {
+      fontFamily: "PPMori",
+      fontWeight: 500,
+    },
+    h2: {
+      fontFamily: "PPMori",
+      fontWeight: "bold",
+    },
+    h3: {
+      fontFamily: "PPMori",
+      fontWeight: "bold",
+    },
+    h4: {
+      fontFamily: "PPMori",
+      fontWeight: "bold",
+    },
+    h5: {
+      fontFamily: "PPMori",
+      fontWeight: "bold",
+    },
+    h6: {
+      fontFamily: "PPMori",
+      fontWeight: "bold",
+    },
+    button: {
+      fontFamily: "PPMori",
     },
   },
 });
 
-export default theme;
+export default AppTheme;

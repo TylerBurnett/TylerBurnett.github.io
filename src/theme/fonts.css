@@ -1,0 +1,17 @@
+@font-face {
+  font-family: PPMori;
+  src: url(../assets/fonts/PPMori-Extralight.otf) format("opentype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: PPMori;
+  src: url(../assets/fonts/PPMori-Regular.otf) format("opentype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: PPMori;
+  src: url(../assets/fonts/PPMori-SemiBold.otf) format("opentype");
+  font-weight: 600;
+}
