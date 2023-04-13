@@ -11,7 +11,7 @@ const centered: SxProps<Theme> = {
 
 export default function Landing() {
   return (
-    <Box minHeight="100vh" minWidth="100%" position="relative">
+    <Box minHeight="100vh" marginBottom="5vh" minWidth="100%" position="relative">
       <Box position="absolute" right={0} top={25}>
         <Button size="large" onClick={() => (window.location.href = "https://www.linkedin.com/in/tyler-burnett-35a9a2181/")}>
           <FadeInTypography delay={0.9} text="Linked In" />
@@ -31,7 +31,7 @@ export default function Landing() {
       </Box>
 
       <Box position="absolute" left={0} bottom={80} minWidth="100%">
-        <Typography variant="h1" textAlign="left" sx={{ fontSize: 150, marginBottom: -6 }}>
+        <Typography variant="landingHeader" textAlign="left">
           <FadeInTypography delay={0.6} text="Tyler" />
         </Typography>
 

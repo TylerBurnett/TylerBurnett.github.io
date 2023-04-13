@@ -10,7 +10,7 @@ import { Outlet } from "react-router-dom";
  */
 export default function AppContainer() {
   return (
-    <Container maxWidth="xl" sx={{ padding: 0 }}>
+    <Container maxWidth="xl">
       <Outlet />
     </Container>
   );
