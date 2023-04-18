@@ -4,6 +4,7 @@ import ContentContainer from "./ContentContainer";
 import { Grid, Typography } from "@mui/material";
 import CodeAutoTyping from "../common/CodeAutoTyping";
 import { nord } from "react-syntax-highlighter/dist/esm/styles/prism";
+import ResumePreview from "./ResumePreview";
 
 const codeSample =
   " //TODO: Refactor this function, it takes ~80 years to complete\r\nfunction simulateLife() {\r\n  const tyler = new Human();\r\n\r\n  while (!tyler.isDead) {\r\n    tyler.percieve();\r\n    tyler.understand();\r\n    tyler.learn();\r\n  }\r\n}";
@@ -28,6 +29,14 @@ export default function HomePage() {
           </Grid>
           <Grid item width="595px" height="312px">
             <CodeAutoTyping text={codeSample} syntaxHighlighterProps={{ style: nord, wrapLongLines: true }} language="javascript" />
+          </Grid>
+        </Grid>
+      </ContentContainer>
+
+      <ContentContainer sectionIndex={2} titleAlignment="center" title="Get it on paper">
+        <Grid container justifyContent="center">
+          <Grid>
+            <ResumePreview />
           </Grid>
         </Grid>
       </ContentContainer>

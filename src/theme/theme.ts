@@ -62,6 +62,8 @@ let AppTheme = createTheme({
     button: {
       fontFamily: "PPMori",
       fontWeight: 500,
+      fontSize: "19px",
+      textTransform: "none",
     },
     body1: {
       fontFamily: "PPMori",
