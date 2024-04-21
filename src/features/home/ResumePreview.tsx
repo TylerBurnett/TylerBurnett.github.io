@@ -1,5 +1,5 @@
 import React from "react";
-import { Document, Page } from "react-pdf/dist/esm/entry.vite";
+import { Document, Page } from "react-pdf";
 import Resume from "../../assets/pdf/Resume.pdf?url";
 import { Button, Grid } from "@mui/material";
 
