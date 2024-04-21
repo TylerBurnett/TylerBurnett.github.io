@@ -10,7 +10,7 @@ export default function ResumePreview() {
     standardFontDataUrl: "standard_fonts/",
   };
 
-  const download = (fileUrl: string, fileName: string) => {
+  const downloadFile = (fileUrl: string, fileName: string) => {
     const a = document.createElement("a");
     a.href = fileUrl;
     a.setAttribute("download", fileName);
@@ -25,7 +25,7 @@ export default function ResumePreview() {
         </Document>
       </Grid>
       <Grid item>
-        <Button size="large" onClick={() => download(Resume, "Tyler Burnett - Resume")}>
+        <Button size="large" onClick={() => downloadFile(Resume, "Tyler Burnett - Resume")}>
           Grab a copy
         </Button>
       </Grid>
