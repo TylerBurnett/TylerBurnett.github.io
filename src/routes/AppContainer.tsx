@@ -9,9 +9,9 @@ import { Outlet } from "react-router-dom";
  * @returns A TSX DOM element.
  */
 export default function AppContainer() {
-	return (
-		<Container maxWidth="xl">
-			<Outlet />
-		</Container>
-	);
+  return (
+    <Container maxWidth="xl">
+      <Outlet />
+    </Container>
+  );
 }

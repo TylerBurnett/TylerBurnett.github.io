@@ -6,12 +6,12 @@ import { CssBaseline } from "@mui/material";
 import AppTheme from "./theme/theme";
 
 function App() {
-	return (
-		<ThemeProvider theme={AppTheme}>
-			<CssBaseline />
-			<RouterProvider router={AppRoutes} />
-		</ThemeProvider>
-	);
+  return (
+    <ThemeProvider theme={AppTheme}>
+      <CssBaseline />
+      <RouterProvider router={AppRoutes} />
+    </ThemeProvider>
+  );
 }
 
 export default App;
