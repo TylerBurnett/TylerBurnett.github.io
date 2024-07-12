@@ -4,16 +4,16 @@ import AppContainer from "./AppContainer";
 import HomePage from "../features/home/Homepage";
 
 const AppRoutes = createBrowserRouter([
-  {
-    path: "/",
-    element: <AppContainer />,
-    children: [
-      {
-        index: true,
-        element: <HomePage />,
-      },
-    ],
-  },
+	{
+		path: "/",
+		element: <AppContainer />,
+		children: [
+			{
+				index: true,
+				element: <HomePage />,
+			},
+		],
+	},
 ]);
 
 export default AppRoutes;
