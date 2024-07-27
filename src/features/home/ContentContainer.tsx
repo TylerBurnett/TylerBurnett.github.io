@@ -9,7 +9,7 @@ interface ContentContainerProps {
 }
 
 const numberToBinary = (int: number) => {
-	return (int >>> 0).toString(3).padStart(3, "0");
+	return (int >>> 0).toString(2).padStart(3, "0");
 };
 
 export default function ContentContainer(props: ContentContainerProps) {
