@@ -2,6 +2,10 @@ import React from "react";
 import { Document, Page } from "react-pdf";
 import Resume from "../../assets/pdf/Resume.pdf?url";
 import { Button, Grid } from "@mui/material";
+import { pdfjs } from "react-pdf";
+
+// This is needed for pdfjs to function
+pdfjs.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.min.mjs", import.meta.url).toString();
 
 export default function ResumePreview() {
 	const options = {
