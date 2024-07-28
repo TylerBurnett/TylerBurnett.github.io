@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type RefObject } from "react";
 import { Box, Button, Grid, IconButton, type SxProps, type Theme, Typography } from "@mui/material";
 import CircleGridArt from "./CircleGridArt";
 import FadeInTypography from "../common/FadeInTypography";
@@ -9,9 +9,17 @@ const centered: SxProps<Theme> = {
 	transform: "translate(-50%, 0)",
 };
 
-export default function Landing() {
+const scrollOptions: ScrollIntoViewOptions = {
+	behavior: "smooth",
+};
+
+interface LandingProps {
+	scrollToSectionRef: RefObject<HTMLDivElement>;
+}
+
+export default function Landing(props: LandingProps) {
 	return (
-		<Box minHeight="100vh" marginBottom="5vh" minWidth="100%" position="relative">
+		<Box minHeight="100vh" marginBottom="20vh" minWidth="100%" position="relative">
 			<Box position="absolute" right={0} top={25}>
 				<Button size="large" onClick={() => (window.location.href = "https://www.linkedin.com/in/tyler-burnett-35a9a2181/")}>
 					<FadeInTypography delay={0.9} text="Linked In" />
@@ -49,7 +57,12 @@ export default function Landing() {
 				</Typography>
 			</Box>
 
-			<IconButton aria-label="Scroll Down" size="large" sx={{ position: "absolute", left: "50%", bottom: 10, ...centered }}>
+			<IconButton
+				aria-label="Scroll Down"
+				size="large"
+				sx={{ position: "absolute", left: "50%", bottom: 10, ...centered }}
+				onClick={() => props.scrollToSectionRef?.current?.scrollIntoView(scrollOptions)}
+			>
 				<ArrowDownwardIcon fontSize="inherit" color="inherit" />
 			</IconButton>
 		</Box>

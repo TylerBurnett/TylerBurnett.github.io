@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Landing from "./Landing";
 import ContentContainer from "./ContentContainer";
 import { Grid, Typography } from "@mui/material";
@@ -7,13 +7,15 @@ import { nord } from "react-syntax-highlighter/dist/esm/styles/prism";
 import ResumePreview from "./ResumePreview";
 
 const codeSample =
-	" //TODO: Refactor this function, it takes ~80 years to complete\r\nfunction simulateLife() {\r\n  const tyler = new Human();\r\n\r\n  while (!tyler.isDead) {\r\n    tyler.percieve();\r\n    tyler.understand();\r\n    tyler.learn();\r\n  }\r\n}";
+	" //TODO: Refactor this, it takes ~80 years to complete\r\nfunction simulateLife() {\r\n  const tyler = new Human();\r\n\r\n  while (!tyler.isDead) {\r\n    tyler.percieve();\r\n    tyler.understand();\r\n    tyler.learn();\r\n  }\r\n}";
 
 export default function HomePage() {
+	const firstSectionRef = useRef<HTMLDivElement>(null);
+
 	return (
 		<>
-			<Landing />
-			<ContentContainer sectionIndex={1} title="Young and Aspiring">
+			<Landing scrollToSectionRef={firstSectionRef} />
+			<ContentContainer ref={firstSectionRef} sectionIndex={1} title="Young and Aspiring">
 				<Grid container minWidth="100%" spacing={5} justifyContent="space-between">
 					<Grid item maxWidth="800px">
 						<Typography variant="body1" paragraph>
