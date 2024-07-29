@@ -6,6 +6,7 @@ import CodeAutoTyping from "../common/CodeAutoTyping";
 import { nord } from "react-syntax-highlighter/dist/esm/styles/prism";
 import ResumePreview from "./ResumePreview";
 import ParallaxContainer from "../common/ParallaxContainer";
+import RotatingDiamondArt from "./RotatingDiamondArt";
 
 const codeSample =
 	" //TODO: Refactor this, it takes ~80 years to complete\r\nfunction simulateLife() {\r\n  const tyler = new Human();\r\n\r\n  while (!tyler.isDead) {\r\n    tyler.percieve();\r\n    tyler.understand();\r\n    tyler.learn();\r\n  }\r\n}";
@@ -17,8 +18,9 @@ export default function HomePage() {
 		<>
 			<Landing scrollToSectionRef={firstSectionRef} />
 
-			<Box marginTop="30vh" marginBottom="30vh">
+			<Box marginTop="40vh" marginBottom="40vh">
 				<ParallaxContainer baseVelocity={2}>Eat. Sleep. Code. Repeat.</ParallaxContainer>
+				<RotatingDiamondArt />
 				<ParallaxContainer baseVelocity={-2}>Eat. Sleep. Code. Repeat.</ParallaxContainer>
 			</Box>
 
