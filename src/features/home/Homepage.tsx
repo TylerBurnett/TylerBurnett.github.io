@@ -39,7 +39,7 @@ export default function HomePage() {
 						</Typography>
 					</Grid>
 					<Grid item width="595px" height="312px">
-						<CodeAutoTyping text={codeSample} syntaxHighlighterProps={{ style: nord, wrapLongLines: true }} language="javascript" />
+						<CodeAutoTyping text={codeSample} syntaxHighlighterProps={{ style: nord, wrapLongLines: true, children: "" }} language="javascript" />
 					</Grid>
 				</Grid>
 			</ContentContainer>

@@ -4,7 +4,6 @@ import CircleGridArt from "./CircleGridArt";
 import FadeInTypography from "../common/FadeInTypography";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import FadeInContainer from "../common/FadeInContainer";
-import LoopingAnimationContainer from "../common/LoopingAnimationContainer";
 
 const centered: SxProps<Theme> = {
 	transform: "translate(-50%, 0)",
@@ -22,13 +21,13 @@ export default function Landing(props: LandingProps) {
 	return (
 		<Box minHeight="100vh" minWidth="100%" position="relative">
 			<Box position="absolute" right={0} top={25}>
-				<Button size="large" onClick={() => (window.location.href = "https://www.linkedin.com/in/tyler-burnett-35a9a2181/")}>
+				<Button size="large" href="https://www.linkedin.com/in/tyler-burnett-35a9a2181/">
 					<FadeInTypography delay={0.9} text="Linked In" />
 				</Button>
 			</Box>
 
 			<Box position="absolute" right={120} top={25}>
-				<Button size="large" onClick={() => (window.location.href = "https://github.com/TylerBurnett")}>
+				<Button size="large" href="https://github.com/TylerBurnett">
 					<FadeInTypography delay={0.6} text="Github" />
 				</Button>
 			</Box>
