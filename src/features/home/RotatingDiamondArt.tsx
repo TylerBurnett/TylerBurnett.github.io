@@ -56,6 +56,7 @@ export default function RotatingDiamondArt() {
 
 		// Create the canvas and bind it immediately
 		setCanvas(p5.createCanvas(width, height, "webgl").parent(canvasParentRef));
+		p5.disableFriendlyErrors = true;
 	};
 
 	const draw = (p5: p5Types) => {

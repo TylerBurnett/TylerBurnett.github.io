@@ -41,6 +41,7 @@ export default function CircleGridArt() {
 
 		// Create the canvas and bind it immediately
 		setCanvas(p5.createCanvas(width, height).parent(canvasParentRef));
+		p5.disableFriendlyErrors = true;
 
 		rows = p5.floor((p5.height * gridSize) / gridSpacing);
 		cols = p5.floor((p5.width * gridSize) / gridSpacing);
