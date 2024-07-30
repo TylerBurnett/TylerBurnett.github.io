@@ -1,56 +1,42 @@
-import React, { useEffect, useState } from "react";
-import Sketch from "react-p5";
-import type p5Types from "p5";
+import { CalculateCanvasSize } from "../../helpers/p5Helpers";
+import { type P5CanvasInstance, ReactP5Wrapper, type Sketch } from "@p5-wrapper/react";
 
-const baseHeight = 500;
-const baseWidth = 1000;
-const padding = 20;
+const sketch: Sketch = (p5: P5CanvasInstance) => {
+	const baseHeight = 500;
+	const baseWidth = 1000;
+	const padding = 20;
 
-let rows: number;
-let cols: number;
-let circleSize: number;
-let circleSpacing: number;
-let time = 0;
-const gridSize = 5;
-const noiseResolution = 2;
-const noiseMagnitude = 5;
-const gridSpacing = 50; // spacing between circles in the grid
-const cursorRadius = 100; // radius of cursor effect
+	let rows: number;
+	let cols: number;
+	let circleSize: number;
+	let circleSpacing: number;
+	let time = 0;
+	const gridSize = 5;
+	const noiseResolution = 2;
+	const noiseMagnitude = 5;
+	const gridSpacing = 50; // spacing between circles in the grid
+	const cursorRadius = 100; // radius of cursor effect
 
-const calculateCanvasSize = (baseheight: number, baseWidth: number, padding: number): { height: number; width: number } => {
-	let width = baseWidth;
-	if (baseWidth - padding * 2 > window.innerWidth) {
-		width = window.innerWidth - padding * 2;
-	}
-
-	const heightPercentage = baseHeight / 1080;
-	const height = window.innerHeight * heightPercentage;
-
-	return { width, height };
-};
-
-export default function CircleGridArt() {
-	const [canvas, setCanvas] = useState<p5Types.Renderer>();
-
-	useEffect(() => {
-		return canvas?.remove();
-	});
-
-	const setup = (p5: p5Types, canvasParentRef: Element) => {
-		const { width, height } = calculateCanvasSize(baseHeight, baseWidth, padding);
+	p5.setup = () => {
+		const { width, height } = CalculateCanvasSize(baseHeight, baseWidth, padding);
 
 		// Create the canvas and bind it immediately
-		setCanvas(p5.createCanvas(width, height).parent(canvasParentRef));
+		p5.createCanvas(width, height);
 		p5.disableFriendlyErrors = true;
 
-		rows = p5.floor((p5.height * gridSize) / gridSpacing);
-		cols = p5.floor((p5.width * gridSize) / gridSpacing);
+		rows = Math.floor((p5.height * gridSize) / gridSpacing);
+		cols = Math.floor((p5.width * gridSize) / gridSpacing);
 		circleSize = p5.width / (cols * 3);
 		circleSpacing = gridSpacing;
 		p5.noStroke();
 	};
 
-	const draw = (p5: p5Types) => {
+	p5.windowResized = () => {
+		const { width, height } = CalculateCanvasSize(baseHeight, baseWidth, padding);
+		p5.resizeCanvas(width, height);
+	};
+
+	p5.draw = () => {
 		p5.background("#F1F1F1");
 		time += 0.0015;
 
@@ -87,11 +73,8 @@ export default function CircleGridArt() {
 			}
 		}
 	};
+};
 
-	const windowResized = (p5: p5Types) => {
-		const { width, height } = calculateCanvasSize(baseHeight, baseWidth, padding);
-		p5.resizeCanvas(width, height);
-	};
-
-	return <Sketch setup={setup} draw={draw} windowResized={windowResized} />;
+export default function CircleGridArt() {
+	return <ReactP5Wrapper sketch={sketch} />;
 }

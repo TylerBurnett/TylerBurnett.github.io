@@ -1,12 +1,5 @@
-import React, { useEffect, useState } from "react";
-import Sketch from "react-p5";
-import type p5Types from "p5";
-
-const baseHeight = 500;
-const baseWidth = 1500;
-const padding = 20;
-
-let angleY = 0;
+import { ReactP5Wrapper, type Sketch, type P5CanvasInstance } from "@p5-wrapper/react";
+import { CalculateCanvasSize } from "../../helpers/p5Helpers";
 
 type verticeList = {
 	x: number;
@@ -14,52 +7,37 @@ type verticeList = {
 	z: number;
 }[];
 
-// Define the vertices for an elongated octahedron
-const vertices: verticeList = [
-	{ x: 0, y: 150, z: 0 }, // Top vertex
-	{ x: 0, y: -150, z: 0 }, // Bottom vertex
-	{ x: 100, y: 0, z: 0 }, // Right vertex
-	{ x: -100, y: 0, z: 0 }, // Left vertex
-	{ x: 0, y: 0, z: 100 }, // Front vertex
-	{ x: 0, y: 0, z: -100 }, // Back vertex
-];
+const sketch: Sketch = (p5: P5CanvasInstance) => {
+	const baseHeight = 500;
+	const baseWidth = 1500;
+	const padding = 20;
 
-const drawFace = (p5: p5Types, vertices: verticeList) => {
-	p5.beginShape();
-	for (const v of vertices) {
-		p5.vertex(v.x, v.y, v.z);
-	}
-	p5.endShape(p5.CLOSE);
-};
+	let angleY = 0;
 
-const calculateCanvasSize = (baseheight: number, baseWidth: number, padding: number): { height: number; width: number } => {
-	let width = baseWidth;
-	if (baseWidth - padding * 2 > window.innerWidth) {
-		width = window.innerWidth - padding * 2;
-	}
+	// Define the vertices for an elongated octahedron
+	const vertices: verticeList = [
+		{ x: 0, y: 150, z: 0 }, // Top vertex
+		{ x: 0, y: -150, z: 0 }, // Bottom vertex
+		{ x: 100, y: 0, z: 0 }, // Right vertex
+		{ x: -100, y: 0, z: 0 }, // Left vertex
+		{ x: 0, y: 0, z: 100 }, // Front vertex
+		{ x: 0, y: 0, z: -100 }, // Back vertex
+	];
 
-	const heightPercentage = baseHeight / 1080;
-	const height = window.innerHeight * heightPercentage;
-
-	return { width, height };
-};
-
-export default function RotatingDiamondArt() {
-	const [canvas, setCanvas] = useState<p5Types.Renderer>();
-
-	useEffect(() => {
-		return canvas?.remove();
-	});
-
-	const setup = (p5: p5Types, canvasParentRef: Element) => {
-		const { width, height } = calculateCanvasSize(baseHeight, baseWidth, padding);
+	p5.setup = () => {
+		const { width, height } = CalculateCanvasSize(baseHeight, baseWidth, padding);
 
 		// Create the canvas and bind it immediately
-		setCanvas(p5.createCanvas(width, height, "webgl").parent(canvasParentRef));
+		p5.createCanvas(width, height, "webgl");
 		p5.disableFriendlyErrors = true;
 	};
 
-	const draw = (p5: p5Types) => {
+	p5.windowResized = () => {
+		const { width, height } = CalculateCanvasSize(baseHeight, baseWidth, padding);
+		p5.resizeCanvas(width, height);
+	};
+
+	p5.draw = () => {
 		p5.background("#F1F1F1");
 		p5.rotateY(angleY);
 		p5.noFill();
@@ -77,10 +55,15 @@ export default function RotatingDiamondArt() {
 		angleY += 0.01;
 	};
 
-	const windowResized = (p5: p5Types) => {
-		const { width, height } = calculateCanvasSize(baseHeight, baseWidth, padding);
-		p5.resizeCanvas(width, height);
+	const drawFace = (p5: P5CanvasInstance, vertices: verticeList) => {
+		p5.beginShape();
+		for (const v of vertices) {
+			p5.vertex(v.x, v.y, v.z);
+		}
+		p5.endShape(p5.CLOSE);
 	};
+};
 
-	return <Sketch setup={setup} draw={draw} windowResized={windowResized} />;
+export default function RotatingDiamondArt() {
+	return <ReactP5Wrapper sketch={sketch} />;
 }
