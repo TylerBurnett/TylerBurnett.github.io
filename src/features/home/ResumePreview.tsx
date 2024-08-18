@@ -2,7 +2,6 @@ import { Document, Page } from "react-pdf";
 import Resume from "../../assets/pdf/Resume.pdf?url";
 import { Button, Grid, useTheme } from "@mui/material";
 import { pdfjs } from "react-pdf";
-import React, { useEffect } from "react";
 import { CalculateCanvasSize } from "../../helpers/dynamicCanvasScaler";
 import { useWindowWidth } from "@react-hook/window-size";
 

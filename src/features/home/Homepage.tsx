@@ -20,7 +20,11 @@ export default function HomePage() {
 
 			<Box marginTop="40vh" marginBottom="40vh">
 				<ParallaxContainer baseVelocity={2}>Eat. Sleep. Code. Repeat.</ParallaxContainer>
-				<RotatingDiamondArt />
+				<Grid container justifyContent="center">
+					<Grid item>
+						<RotatingDiamondArt />
+					</Grid>
+				</Grid>
 				<ParallaxContainer baseVelocity={-2}>Eat. Sleep. Code. Repeat.</ParallaxContainer>
 			</Box>
 
