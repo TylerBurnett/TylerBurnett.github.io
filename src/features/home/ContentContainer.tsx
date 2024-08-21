@@ -15,7 +15,7 @@ const numberToBinary = (int: number) => {
 
 function ContentContainer(props: ContentContainerProps, ref: ForwardedRef<HTMLDivElement>) {
 	return (
-		<Grid ref={ref} container spacing={2} minWidth="100%" paddingBottom={50} justifyContent={props.titleAlignment ?? "flex-start"}>
+		<Grid ref={ref} container spacing={2} minWidth="100%" maxWidth="100%" paddingBottom={50} justifyContent={props.titleAlignment ?? "flex-start"}>
 			<Grid item>
 				<Typography variant="h3">{numberToBinary(props.sectionIndex)}</Typography>
 			</Grid>

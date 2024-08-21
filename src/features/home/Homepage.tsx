@@ -50,7 +50,7 @@ export default function HomePage() {
 
 			<ContentContainer sectionIndex={2} titleAlignment="center" title="Get it on paper">
 				<Grid container justifyContent="center">
-					<Grid>
+					<Grid item>
 						<ResumePreview />
 					</Grid>
 				</Grid>
