@@ -1,4 +1,4 @@
-import React, { type RefObject } from "react";
+import type { RefObject } from "react";
 import { Box, Button, Grid, IconButton, type SxProps, type Theme, Typography } from "@mui/material";
 import CircleGridArt from "./CircleGridArt";
 import FadeInTypography from "../common/FadeInTypography";

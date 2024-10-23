@@ -1,4 +1,3 @@
-import React from "react";
 import { PrismAsyncLight as SyntaxHighlighter, type SyntaxHighlighterProps } from "react-syntax-highlighter";
 import Typist from "react-typist-component";
 import "./CodeAutoTyping.css";
