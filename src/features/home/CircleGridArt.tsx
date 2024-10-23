@@ -22,29 +22,36 @@ export default function CircleGridArt() {
 		const noiseMagnitude = 5;
 		const gridSpacing = 50; // spacing between circles in the grid
 		const cursorRadius = 50; // radius of cursor effect
+		const circleSize = 2.5;
 
 		let rows: number;
 		let cols: number;
-		let circleSize: number;
+
 		let circleSpacing: number;
 		let time = 0;
+		
+		const calculateGrid = () => {
+			rows = Math.ceil(((p5.height * gridSize) - circleSize) / gridSpacing);
+			cols = Math.ceil(((p5.width * gridSize) - circleSize) / gridSpacing);
+			circleSpacing = gridSpacing;
+		}
 
 		p5.setup = () => {
 			const { width, height } = CalculateCanvasSize(theme, breakPoints);
 
 			p5.createCanvas(width, height);
 			p5.disableFriendlyErrors = true;
-
-			rows = Math.floor((p5.height * gridSize) / gridSpacing);
-			cols = Math.floor((p5.width * gridSize) / gridSpacing);
-			circleSize = p5.width / (cols * 3);
-			circleSpacing = gridSpacing;
+			
+			calculateGrid()
+			
 			p5.noStroke();
 		};
 
 		p5.windowResized = () => {
 			const { width, height } = CalculateCanvasSize(theme, breakPoints);
 			p5.resizeCanvas(width, height);
+			
+			calculateGrid()
 		};
 
 		p5.draw = () => {

@@ -1,9 +1,9 @@
 import React from "react";
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import AppContainer from "./AppContainer";
 import HomePage from "../features/home/Homepage";
 
-const AppRoutes = createBrowserRouter([
+const AppRoutes = createHashRouter([
 	{
 		path: "/",
 		element: <AppContainer />,
