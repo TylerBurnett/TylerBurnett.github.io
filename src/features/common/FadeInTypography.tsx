@@ -23,11 +23,12 @@ function FadeInTypography(props: AnimatedTypographyProps) {
 
 	const isInView = React.useState(false);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		if (isInView) {
 			controls.start((i) => variants.visible(i));
 		}
-	}, [controls, isInView, variants]);
+	}, [controls, isInView]);
 
 	return (
 		<div ref={ref}>

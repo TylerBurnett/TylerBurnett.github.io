@@ -29,29 +29,29 @@ export default function CircleGridArt() {
 
 		let circleSpacing: number;
 		let time = 0;
-		
+
 		const calculateGrid = () => {
-			rows = Math.ceil(((p5.height * gridSize) - circleSize) / gridSpacing);
-			cols = Math.ceil(((p5.width * gridSize) - circleSize) / gridSpacing);
+			rows = Math.ceil((p5.height * gridSize - circleSize) / gridSpacing);
+			cols = Math.ceil((p5.width * gridSize - circleSize) / gridSpacing);
 			circleSpacing = gridSpacing;
-		}
+		};
 
 		p5.setup = () => {
 			const { width, height } = CalculateCanvasSize(theme, breakPoints);
 
 			p5.createCanvas(width, height);
 			p5.disableFriendlyErrors = true;
-			
-			calculateGrid()
-			
+
+			calculateGrid();
+
 			p5.noStroke();
 		};
 
 		p5.windowResized = () => {
 			const { width, height } = CalculateCanvasSize(theme, breakPoints);
 			p5.resizeCanvas(width, height);
-			
-			calculateGrid()
+
+			calculateGrid();
 		};
 
 		p5.draw = () => {
