@@ -1,5 +1,5 @@
-import { ReactP5Wrapper, type Sketch, type P5CanvasInstance } from "@p5-wrapper/react";
 import { useTheme } from "@mui/material";
+import { type P5CanvasInstance, ReactP5Wrapper, type Sketch } from "@p5-wrapper/react";
 
 type verticeList = {
 	x: number;

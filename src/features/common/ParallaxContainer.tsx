@@ -1,5 +1,5 @@
-import { useRef } from "react";
 import { motion, useAnimationFrame, useMotionValue, useScroll, useSpring, useTransform, useVelocity, wrap } from "framer-motion";
+import { useRef } from "react";
 import "./ParallaxContainer.css";
 
 interface ParallaxProps {

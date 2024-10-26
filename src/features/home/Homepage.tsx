@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
-import Landing from "./Landing";
-import ContentContainer from "./ContentContainer";
 import { Box, Grid, Typography } from "@mui/material";
-import CodeAutoTyping from "../common/CodeAutoTyping";
+import { useRef } from "react";
 import { nord } from "react-syntax-highlighter/dist/esm/styles/prism";
-import ResumePreview from "./ResumePreview";
+import CodeAutoTyping from "../common/CodeAutoTyping";
 import ParallaxContainer from "../common/ParallaxContainer";
+import ContentContainer from "./ContentContainer";
+import Landing from "./Landing";
+import ResumePreview from "./ResumePreview";
 import RotatingDiamondArt from "./RotatingDiamondArt";
 
 const codeSample =
@@ -48,13 +48,18 @@ export default function HomePage() {
 				</Grid>
 			</ContentContainer>
 
-			<ContentContainer sectionIndex={2} titleAlignment="center" title="Get it on paper">
-				<Grid container justifyContent="center">
-					<Grid item>
-						<ResumePreview />
-					</Grid>
+			<Grid container justifyContent="space-around" alignItems="top">
+				<Grid item>
+					<ResumePreview />
 				</Grid>
-			</ContentContainer>
+				<Grid item>
+					<ContentContainer sectionIndex={3} title="Get it on paper">
+						<Typography variant="body1" paragraph>
+							This resume was last updated on <b>23/10/2024</b>
+						</Typography>
+					</ContentContainer>
+				</Grid>
+			</Grid>
 		</>
 	);
 }

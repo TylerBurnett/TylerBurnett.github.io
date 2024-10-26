@@ -1,9 +1,9 @@
-import { Document, Page } from "react-pdf";
-import Resume from "../../assets/pdf/Resume.pdf?url";
 import { Button, Grid, useTheme } from "@mui/material";
-import { pdfjs } from "react-pdf";
-import { CalculateCanvasSize } from "../../helpers/dynamicCanvasScaler";
 import { useWindowWidth } from "@react-hook/window-size";
+import { Document, Page } from "react-pdf";
+import { pdfjs } from "react-pdf";
+import Resume from "../../assets/pdf/Resume.pdf?url";
+import { CalculateCanvasSize } from "../../helpers/dynamicCanvasScaler";
 
 // This is needed for pdfjs to function
 pdfjs.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.min.mjs", import.meta.url).toString();

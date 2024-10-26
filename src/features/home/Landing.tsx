@@ -1,9 +1,9 @@
-import type { RefObject } from "react";
-import { Box, Button, Grid, IconButton, type SxProps, type Theme, Typography } from "@mui/material";
-import CircleGridArt from "./CircleGridArt";
-import FadeInTypography from "../common/FadeInTypography";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { Box, Button, Grid, IconButton, type SxProps, type Theme, Typography } from "@mui/material";
+import type { RefObject } from "react";
 import FadeInContainer from "../common/FadeInContainer";
+import FadeInTypography from "../common/FadeInTypography";
+import CircleGridArt from "./CircleGridArt";
 
 const centered: SxProps<Theme> = {
 	transform: "translate(-50%, 0)",

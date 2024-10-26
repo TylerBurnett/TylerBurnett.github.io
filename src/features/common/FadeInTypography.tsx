@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 
 interface AnimatedTypographyProps {
-	delay?: number;
 	text: string;
+	delay?: number;
 }
 
 function FadeInTypography(props: AnimatedTypographyProps) {

@@ -1,6 +1,6 @@
-import type React from "react";
 import { Grid, Typography } from "@mui/material";
-import { type ForwardedRef, forwardRef, MutableRefObject } from "react";
+import type React from "react";
+import { type ForwardedRef, forwardRef } from "react";
 
 interface ContentContainerProps {
 	children?: React.ReactNode;
