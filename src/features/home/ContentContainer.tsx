@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid2 as Grid, Typography } from "@mui/material";
 import type React from "react";
 import { type ForwardedRef, forwardRef } from "react";
 
@@ -15,18 +15,16 @@ const numberToBinary = (int: number) => {
 
 function ContentContainer(props: ContentContainerProps, ref: ForwardedRef<HTMLDivElement>) {
 	return (
-		<Grid ref={ref} container spacing={2} minWidth="100%" maxWidth="100%" paddingBottom={50} justifyContent={props.titleAlignment ?? "flex-start"}>
-			<Grid item>
+		<Grid container ref={ref} spacing={2} minWidth="100%" maxWidth="100%" paddingBottom={50} justifyContent={props.titleAlignment ?? "flex-start"}>
+			<Grid>
 				<Typography variant="h3">{numberToBinary(props.sectionIndex)}</Typography>
 			</Grid>
-			<Grid item>
-				<Typography variant="h3" paragraph>
+			<Grid>
+				<Typography variant="h3" component="p">
 					{props.title}
 				</Typography>
 			</Grid>
-			<Grid item minWidth="100%">
-				{props.children}
-			</Grid>
+			<Grid minWidth="100%">{props.children}</Grid>
 		</Grid>
 	);
 }

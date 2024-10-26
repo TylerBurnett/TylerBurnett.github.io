@@ -1,5 +1,5 @@
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import { Box, Button, Grid, IconButton, type SxProps, type Theme, Typography } from "@mui/material";
+import { Box, Button, Grid2 as Grid, IconButton, type SxProps, type Theme, Typography } from "@mui/material";
 import type { RefObject } from "react";
 import FadeInContainer from "../common/FadeInContainer";
 import FadeInTypography from "../common/FadeInTypography";
@@ -44,10 +44,10 @@ export default function Landing(props: LandingProps) {
 				</Typography>
 
 				<Grid container>
-					<Grid item xs={11} md={6}>
+					<Grid size={{ xs: 11, md: 6 }}>
 						<hr style={{ border: "0.1px solid" }} />
 					</Grid>
-					<Grid item md={6}>
+					<Grid size={{ md: 6 }}>
 						<hr style={{ border: "0.1px dashed" }} />
 					</Grid>
 				</Grid>

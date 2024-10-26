@@ -1,4 +1,4 @@
-import { Button, Grid, useTheme } from "@mui/material";
+import { Button, Grid2 as Grid, useTheme } from "@mui/material";
 import { useWindowWidth } from "@react-hook/window-size";
 import { Document, Page } from "react-pdf";
 import { pdfjs } from "react-pdf";
@@ -43,12 +43,12 @@ export default function ResumePreview() {
 
 	return (
 		<Grid container alignContent="center" alignItems="center" direction="column">
-			<Grid item>
+			<Grid>
 				<Document file={Resume} options={options}>
 					<Page width={canvasSize.width} pageNumber={1} renderTextLayer={false} renderAnnotationLayer={false} />
 				</Document>
 			</Grid>
-			<Grid item>
+			<Grid>
 				<Button size="large" onClick={() => downloadFile(Resume, "Tyler Burnett - Resume")}>
 					Grab a copy
 				</Button>
