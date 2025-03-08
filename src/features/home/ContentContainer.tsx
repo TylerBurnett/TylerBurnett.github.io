@@ -20,7 +20,7 @@ function ContentContainer(props: ContentContainerProps, ref: ForwardedRef<HTMLDi
 		<Grid container ref={ref} spacing={2} minWidth="100%" maxWidth="100%" paddingBottom={props.paddingBottom ?? 50} justifyContent={props.textAlignment ?? "flex-start"}>
 			<Grid>
 				<Typography variant="h3">
-					<RollingTextTypography text={numberToBinary(props.sectionIndex)} delay={0.2} />
+					<RollingTextTypography text={numberToBinary(props.sectionIndex)} delay={0.3} />
 				</Typography>
 			</Grid>
 			<Grid>
