@@ -20,7 +20,7 @@ function CodeAutoTyping(props: CodeAutoTypingProps) {
 
 	return (
 		<div className="code-snippet" style={{ minWidth: "100%", minHeight: "300px" }} ref={ref}>
-			<Typist typingDelay={100} cursor={<span className="cursor">|</span>} pause={!inView}>
+			<Typist typingDelay={40} cursor="|" pause={!inView}>
 				<SyntaxHighlighter language={language} {...syntaxHighlighterProps}>
 					{text}
 				</SyntaxHighlighter>
