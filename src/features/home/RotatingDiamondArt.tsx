@@ -55,5 +55,5 @@ export default function RotatingDiamondArt() {
 		};
 	};
 
-	return <ReactP5Wrapper sketch={sketch} />;
+	return <ReactP5Wrapper sketch={sketch} loading={() => ""} />;
 }

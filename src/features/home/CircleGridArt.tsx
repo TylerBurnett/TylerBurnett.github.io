@@ -82,5 +82,5 @@ export default function CircleGridArt() {
 		};
 	};
 
-	return <ReactP5Wrapper sketch={sketch} />;
+	return <ReactP5Wrapper sketch={sketch} loading={() => ""} />;
 }
