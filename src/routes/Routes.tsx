@@ -1,5 +1,5 @@
 import { createHashRouter } from "react-router-dom";
-import HomePage from "../features/home/Homepage";
+import HomePage from "../features/home/HomePage";
 import AppContainer from "./AppContainer";
 
 const AppRoutes = createHashRouter([
