@@ -1,5 +1,6 @@
 import { motion, useAnimation } from "framer-motion";
 import React, { useEffect, useRef } from "react";
+import { useInView } from "react-intersection-observer";
 
 interface AnimatedTypographyProps {
 	text: string;
@@ -7,8 +8,14 @@ interface AnimatedTypographyProps {
 }
 
 function FadeInTypography(props: AnimatedTypographyProps) {
-	const ref = useRef<HTMLDivElement>(null);
 	const controls = useAnimation();
+	const { ref, inView } = useInView({ triggerOnce: true });
+
+	useEffect(() => {
+		if (inView) {
+			controls.start((i) => variants.visible(i));
+		}
+	}, [controls, inView]);
 
 	const variants = {
 		visible: (i: number) => ({
@@ -20,15 +27,6 @@ function FadeInTypography(props: AnimatedTypographyProps) {
 		}),
 		hidden: { opacity: 0 },
 	};
-
-	const isInView = React.useState(false);
-
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-	useEffect(() => {
-		if (isInView) {
-			controls.start((i) => variants.visible(i));
-		}
-	}, [controls, isInView]);
 
 	return (
 		<div ref={ref}>
