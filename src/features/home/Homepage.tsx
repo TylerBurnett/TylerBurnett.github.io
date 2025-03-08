@@ -57,9 +57,11 @@ export default function HomePage() {
 						<Typography variant="body1" component="p" textAlign={{ xs: "center", lg: "left" }} paddingBottom={3}>
 							You can download a copy of my resume by clicking the button below. If you have any questions, feel free to reach out to me via email or phone.
 						</Typography>
-						<Button variant="outlined" onClick={DownloadResume}>
-							Download Resume
-						</Button>
+						<Grid container justifyContent={{ xs: "center", lg: "flex-start" }}>
+							<Button variant="outlined" onClick={DownloadResume}>
+								Download Resume
+							</Button>
+						</Grid>
 						<Typography variant="body1" component="p" textAlign={{ xs: "center", lg: "left" }} paddingTop={3}>
 							This resume was last updated on <b>23/10/2024</b>
 						</Typography>
