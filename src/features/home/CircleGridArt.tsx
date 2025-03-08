@@ -16,7 +16,6 @@ const breakPoints = {
 export default function CircleGridArt() {
 	const theme = useTheme();
 	const sketch: Sketch = (p5: P5CanvasInstance) => {
-		const gridSize = 5;
 		const noiseResolution = 2;
 		const noiseMagnitude = 5;
 		const gridSpacing = 50; // spacing between circles in the grid
