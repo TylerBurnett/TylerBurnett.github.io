@@ -1,4 +1,4 @@
-import { Grid2 as Grid, useTheme } from "@mui/material";
+import { Grid2 as Grid, Skeleton, useTheme } from "@mui/material";
 import { useWindowWidth } from "@react-hook/window-size";
 import { Document, Page } from "react-pdf";
 import { pdfjs } from "react-pdf";
@@ -44,7 +44,7 @@ export default function ResumePreview() {
 	return (
 		<Grid container alignContent="center" alignItems="center" direction="column">
 			<Grid>
-				<Document file={Resume} options={options}>
+				<Document file={Resume} options={options} loading={<Skeleton width={canvasSize.width} height={canvasSize.width * 1.414141} />}>
 					<Page width={canvasSize.width} pageNumber={1} renderTextLayer={false} renderAnnotationLayer={false} />
 				</Document>
 			</Grid>
