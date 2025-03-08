@@ -1,6 +1,7 @@
 import { Grid2 as Grid, Typography } from "@mui/material";
 import type React from "react";
 import { type ForwardedRef, forwardRef } from "react";
+import RollingTextTypography from "../common/RollingTextTypography";
 
 interface ContentContainerProps {
 	children?: React.ReactNode;
@@ -18,7 +19,9 @@ function ContentContainer(props: ContentContainerProps, ref: ForwardedRef<HTMLDi
 	return (
 		<Grid container ref={ref} spacing={2} minWidth="100%" maxWidth="100%" paddingBottom={props.paddingBottom ?? 50} justifyContent={props.textAlignment ?? "flex-start"}>
 			<Grid>
-				<Typography variant="h3">{numberToBinary(props.sectionIndex)}</Typography>
+				<Typography variant="h3">
+					<RollingTextTypography text={numberToBinary(props.sectionIndex)} delay={0.2} />
+				</Typography>
 			</Grid>
 			<Grid>
 				<Typography variant="h3" component="p">
