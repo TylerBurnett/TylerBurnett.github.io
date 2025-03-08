@@ -1,4 +1,4 @@
-import { Button, Grid2 as Grid, useTheme } from "@mui/material";
+import { Grid2 as Grid, useTheme } from "@mui/material";
 import { useWindowWidth } from "@react-hook/window-size";
 import { Document, Page } from "react-pdf";
 import { pdfjs } from "react-pdf";
@@ -14,10 +14,10 @@ const options = {
 	standardFontDataUrl: "standard_fonts/",
 };
 
-const downloadFile = (fileUrl: string, fileName: string) => {
+export const DownloadResume = () => {
 	const a = document.createElement("a");
-	a.href = fileUrl;
-	a.setAttribute("download", fileName);
+	a.href = Resume;
+	a.setAttribute("download", "Tyler Burnett - Resume");
 	a.click();
 };
 
@@ -47,11 +47,6 @@ export default function ResumePreview() {
 				<Document file={Resume} options={options}>
 					<Page width={canvasSize.width} pageNumber={1} renderTextLayer={false} renderAnnotationLayer={false} />
 				</Document>
-			</Grid>
-			<Grid>
-				<Button size="large" onClick={() => downloadFile(Resume, "Tyler Burnett - Resume")}>
-					Grab a copy
-				</Button>
 			</Grid>
 		</Grid>
 	);

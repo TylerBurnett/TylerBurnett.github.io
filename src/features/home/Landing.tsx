@@ -14,7 +14,7 @@ const scrollOptions: ScrollIntoViewOptions = {
 };
 
 interface LandingProps {
-	scrollToSectionRef: RefObject<HTMLDivElement>;
+	scrollToSectionRef: RefObject<HTMLDivElement | null>;
 }
 
 export default function Landing(props: LandingProps) {

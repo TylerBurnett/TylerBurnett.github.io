@@ -1,12 +1,16 @@
-import { PrismAsyncLight as SyntaxHighlighter, type SyntaxHighlighterProps } from "react-syntax-highlighter";
 import Typist from "react-typist-component";
 import "./CodeAutoTyping.css";
 import { useInView } from "react-intersection-observer";
+import { Prism, type SyntaxHighlighterProps } from "react-syntax-highlighter";
+import type React from "react";
+
+// Type assertion to fix compatibility issue
+const SyntaxHighlighter = Prism as React.ComponentType<SyntaxHighlighterProps>;
 
 export interface CodeAutoTypingProps {
 	text: string | string[];
 	language?: SyntaxHighlighterProps["language"];
-	syntaxHighlighterProps?: SyntaxHighlighterProps;
+	syntaxHighlighterProps?: Partial<SyntaxHighlighterProps>;
 }
 
 function CodeAutoTyping(props: CodeAutoTypingProps) {
@@ -17,7 +21,7 @@ function CodeAutoTyping(props: CodeAutoTypingProps) {
 	return (
 		<div className="code-snippet" style={{ minWidth: "100%", minHeight: "300px" }} ref={ref}>
 			<Typist typingDelay={100} cursor={<span className="cursor">|</span>} pause={!inView}>
-				<SyntaxHighlighter showLineNumbers wrapLines language={language} {...syntaxHighlighterProps}>
+				<SyntaxHighlighter language={language} {...syntaxHighlighterProps}>
 					{text}
 				</SyntaxHighlighter>
 			</Typist>

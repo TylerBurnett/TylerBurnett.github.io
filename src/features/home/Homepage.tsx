@@ -1,11 +1,11 @@
-import { Box, Grid2 as Grid, Typography } from "@mui/material";
+import { Box, Button, Grid2 as Grid, Typography } from "@mui/material";
 import { useRef } from "react";
 import { nord } from "react-syntax-highlighter/dist/esm/styles/prism";
 import CodeAutoTyping from "../common/CodeAutoTyping";
 import ParallaxContainer from "../common/ParallaxContainer";
 import ContentContainer from "./ContentContainer";
 import Landing from "./Landing";
-import ResumePreview from "./ResumePreview";
+import ResumePreview, { DownloadResume } from "./ResumePreview";
 import RotatingDiamondArt from "./RotatingDiamondArt";
 
 const codeSample =
@@ -49,12 +49,18 @@ export default function HomePage() {
 			</ContentContainer>
 
 			<Grid container justifyContent="space-around" alignItems="top">
-				<Grid>
+				<Grid order={{ xs: 2, lg: 1 }}>
 					<ResumePreview />
 				</Grid>
-				<Grid>
-					<ContentContainer sectionIndex={3} title="Get it on paper">
-						<Typography variant="body1" component="p">
+				<Grid order={{ xs: 1, lg: 2 }} maxWidth={{ lg: "50%" }}>
+					<ContentContainer sectionIndex={3} title="Get it on paper" textAlignment={{ xs: "center", lg: "flex-start" }} paddingBottom={5}>
+						<Typography variant="body1" component="p" textAlign={{ xs: "center", lg: "left" }} paddingBottom={3}>
+							You can download a copy of my resume by clicking the button below. If you have any questions, feel free to reach out to me via email or phone.
+						</Typography>
+						<Button variant="outlined" onClick={DownloadResume}>
+							Download Resume
+						</Button>
+						<Typography variant="body1" component="p" textAlign={{ xs: "center", lg: "left" }} paddingTop={3}>
 							This resume was last updated on <b>23/10/2024</b>
 						</Typography>
 					</ContentContainer>

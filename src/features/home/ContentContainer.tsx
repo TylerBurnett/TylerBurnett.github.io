@@ -6,7 +6,8 @@ interface ContentContainerProps {
 	children?: React.ReactNode;
 	sectionIndex: number;
 	title: string;
-	titleAlignment?: "center" | "flex-start" | "flex-end";
+	textAlignment?: React.ComponentProps<typeof Grid>["justifyContent"];
+	paddingBottom?: React.ComponentProps<typeof Grid>["paddingBottom"];
 }
 
 const numberToBinary = (int: number) => {
@@ -15,7 +16,7 @@ const numberToBinary = (int: number) => {
 
 function ContentContainer(props: ContentContainerProps, ref: ForwardedRef<HTMLDivElement>) {
 	return (
-		<Grid container ref={ref} spacing={2} minWidth="100%" maxWidth="100%" paddingBottom={50} justifyContent={props.titleAlignment ?? "flex-start"}>
+		<Grid container ref={ref} spacing={2} minWidth="100%" maxWidth="100%" paddingBottom={props.paddingBottom ?? 50} justifyContent={props.textAlignment ?? "flex-start"}>
 			<Grid>
 				<Typography variant="h3">{numberToBinary(props.sectionIndex)}</Typography>
 			</Grid>
