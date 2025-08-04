@@ -1,4 +1,4 @@
-import { Grid2 as Grid, Typography } from "@mui/material";
+import {Grid2 as Grid, Typography, useTheme} from "@mui/material";
 import type React from "react";
 import { type ForwardedRef, forwardRef } from "react";
 import RollingTextTypography from "../common/RollingTextTypography";
@@ -16,15 +16,15 @@ const numberToBinary = (int: number) => {
 };
 
 function ContentContainer(props: ContentContainerProps, ref: ForwardedRef<HTMLDivElement>) {
+	const theme = useTheme();
+
 	return (
-		<Grid container ref={ref} spacing={2} minWidth="100%" maxWidth="100%" paddingBottom={props.paddingBottom ?? 50} justifyContent={props.textAlignment ?? "flex-start"}>
+		<Grid container ref={ref} spacing={2} minWidth="100%" maxWidth="100%" paddingBottom={props.paddingBottom ?? 50} justifyContent={props.textAlignment ?? "flex-start"} alignItems="center">
 			<Grid>
-				<Typography variant="h3">
+				<Typography variant="code" fontSize={theme.typography.h4.fontSize}>
 					<RollingTextTypography text={numberToBinary(props.sectionIndex)} delay={0.3} />
 				</Typography>
-			</Grid>
-			<Grid>
-				<Typography variant="h3" component="p">
+				<Typography variant="h3" lineHeight={1}>
 					{props.title}
 				</Typography>
 			</Grid>

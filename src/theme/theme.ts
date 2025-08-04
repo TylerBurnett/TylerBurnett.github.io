@@ -1,14 +1,17 @@
 import "./fonts.css";
 import { createTheme, responsiveFontSizes } from "@mui/material";
+import React from "react";
 
 declare module "@mui/material/styles" {
 	interface TypographyVariants {
 		landingHeader: React.CSSProperties;
+		code: React.CSSProperties;
 	}
 
 	// allow configuration using `createTheme`
 	interface TypographyVariantsOptions {
 		landingHeader?: React.CSSProperties;
+		code?: React.CSSProperties;
 	}
 }
 
@@ -16,6 +19,7 @@ declare module "@mui/material/styles" {
 declare module "@mui/material/Typography" {
 	interface TypographyPropsVariantOverrides {
 		landingHeader: true;
+		code: true;
 	}
 }
 
@@ -75,6 +79,10 @@ let AppTheme = createTheme({
 			fontSize: "9rem",
 			lineHeight: "5.8rem",
 		},
+		code: {
+			fontFamily: "JetBrains Mono",
+			fontWeight: 500,
+		}
 	},
 });
 
