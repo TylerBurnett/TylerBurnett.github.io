@@ -1,5 +1,6 @@
 import { Container } from "@mui/material";
 import { Outlet } from "react-router-dom";
+import Navigation from "../features/common/Navigation";
 
 /**
  * This is the primary container component for the application, it dictates the router outlet as well as the base padding
@@ -9,8 +10,11 @@ import { Outlet } from "react-router-dom";
  */
 export default function AppContainer() {
 	return (
-		<Container maxWidth="xl">
-			<Outlet />
-		</Container>
+		<>
+			<Container maxWidth="xl">
+				<Navigation />
+				<Outlet />
+			</Container>
+		</>
 	);
 }
