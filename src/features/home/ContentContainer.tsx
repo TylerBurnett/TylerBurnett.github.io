@@ -1,6 +1,7 @@
 import { Grid2 as Grid, Typography, Box } from "@mui/material";
 import type React from "react";
 import { type ForwardedRef, forwardRef } from "react";
+import { motion } from "framer-motion";
 import RollingTextTypography from "../common/RollingTextTypography";
 
 interface ContentContainerProps {
@@ -39,15 +40,29 @@ function ContentContainer(props: ContentContainerProps, ref: ForwardedRef<HTMLDi
 				}
 			}}
 		>
-			<Grid xs={12} sx={{ display: 'flex', alignItems: 'baseline', gap: 3, marginTop: 2 }}>
-				<Box 
-					sx={{ 
-						position: 'relative',
-						'&:hover': {
-							transform: 'scale(1.05)',
-							transition: 'transform 0.2s ease-in-out'
-						}
-					}}
+			{/* Subtle animated accent element */}
+			<motion.div
+				initial={{ opacity: 0, scale: 0.8 }}
+				animate={{ opacity: 0.1, scale: 1 }}
+				transition={{ duration: 2, ease: "easeOut" }}
+				style={{
+					position: 'absolute',
+					top: '20px',
+					right: '20px',
+					width: '60px',
+					height: '60px',
+					background: 'linear-gradient(135deg, #000000, #666666)',
+					borderRadius: '50%',
+					filter: 'blur(20px)',
+					pointerEvents: 'none',
+					zIndex: 0
+				}}
+			/>
+			
+			<Grid size={12} sx={{ display: 'flex', alignItems: 'baseline', gap: 3, marginTop: 2, position: 'relative', zIndex: 1 }}>
+				<motion.div
+					whileHover={{ scale: 1.05 }}
+					transition={{ type: "spring", stiffness: 300, damping: 20 }}
 				>
 					<Typography 
 						variant="h2" 
@@ -58,6 +73,7 @@ function ContentContainer(props: ContentContainerProps, ref: ForwardedRef<HTMLDi
 							opacity: 0.8,
 							letterSpacing: '0.1em',
 							position: 'relative',
+							cursor: 'default',
 							'&::after': {
 								content: '""',
 								position: 'absolute',
@@ -72,23 +88,30 @@ function ContentContainer(props: ContentContainerProps, ref: ForwardedRef<HTMLDi
 					>
 						<RollingTextTypography text={numberToBinary(props.sectionIndex)} delay={0.3} />
 					</Typography>
-				</Box>
-				<Typography 
-					variant="h3" 
-					component="h2"
-					sx={{ 
-						fontWeight: 500,
-						position: 'relative',
-						'&:hover': {
-							color: '#333333',
-							transition: 'color 0.3s ease'
-						}
-					}}
+				</motion.div>
+				<motion.div
+					initial={{ opacity: 0, x: -20 }}
+					animate={{ opacity: 1, x: 0 }}
+					transition={{ duration: 0.6, delay: 0.8 }}
 				>
-					{props.title}
-				</Typography>
+					<Typography 
+						variant="h3" 
+						component="h2"
+						sx={{ 
+							fontWeight: 500,
+							position: 'relative',
+							cursor: 'default',
+							'&:hover': {
+								color: '#333333',
+								transition: 'color 0.3s ease'
+							}
+						}}
+					>
+						{props.title}
+					</Typography>
+				</motion.div>
 			</Grid>
-			<Grid xs={12} sx={{ marginTop: 4 }}>
+			<Grid size={12} sx={{ marginTop: 4, position: 'relative', zIndex: 1 }}>
 				{props.children}
 			</Grid>
 		</Grid>

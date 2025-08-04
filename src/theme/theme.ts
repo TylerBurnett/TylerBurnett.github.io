@@ -76,6 +76,23 @@ let AppTheme = createTheme({
 			lineHeight: "5.8rem",
 		},
 	},
+	components: {
+		MuiButton: {
+			styleOverrides: {
+				outlined: {
+					borderColor: '#000000',
+					color: '#000000',
+					'&:hover': {
+						borderColor: '#333333',
+						backgroundColor: 'rgba(0,0,0,0.04)',
+						transform: 'translateY(-1px)',
+						boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+						transition: 'all 0.2s ease-in-out'
+					}
+				}
+			}
+		}
+	}
 });
 
 AppTheme = responsiveFontSizes(AppTheme);
