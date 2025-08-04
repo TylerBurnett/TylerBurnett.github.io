@@ -4,9 +4,9 @@
 	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "bun run --bun vite",
-		"build": "tsc && bun run --bun vite build",
-		"preview": "bun run --bun vite preview",
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
 		"test": "vitest"
 	},
 	"dependencies": {
