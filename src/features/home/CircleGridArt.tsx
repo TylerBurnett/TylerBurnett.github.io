@@ -48,7 +48,7 @@ export default function CircleGridArt() {
 
 		p5.draw = () => {
 			p5.background(theme.palette.background.default);
-			time += 0.0015;
+			time += 0.01;
 			const mouse = p5.createVector(p5.mouseX, p5.mouseY);
 			// Calculate the horizontal and vertical offset of the grid
 			const xOffset = (p5.width - cols * gridSpacing - circleSize) / 2;
