@@ -28,18 +28,20 @@ export default function HomePage() {
 				<ParallaxContainer baseVelocity={-2}>Eat. Sleep. Code. Repeat.</ParallaxContainer>
 			</Box>
 
-			<ContentContainer ref={firstSectionRef} sectionIndex={1} title="Young and Aspiring">
+			<ContentContainer ref={firstSectionRef} sectionIndex={1} title="Who am I?">
 				<Grid container minWidth="100%" spacing={5} justifyContent="space-between">
 					<Grid maxWidth="800px">
-						<Typography variant="body1" component="p">
-							Hi there! I'm Tyler, a Full-Stack Developer based in Brisbane. Although I have only spent 3 years in a professional capacity, I've been developing my solutions at
-							home from as young as 13, and ten years later, I'm still writing code and engineering solutions. It's safe to say that I'm passionate about what I do, and I couldn't
-							be happier.
+						<Typography variant="body1" component="p" pb={2}>
+							I'm a problem-solver at heart who finds genuine satisfaction in building things that work well.
+							There's something deeply rewarding about taking complex challenges and distilling them into
+							elegant solutions—whether that's through code, architecture, or simply asking the right questions.
+							I approach each project with curiosity and a healthy skepticism of "that's how it's always been done."
 						</Typography>
 						<Typography variant="body1" component="p">
-							When it comes to my work, good discipline and engineering practice are paramount. I'm committed to delivering quality systems and user experiences, and I believe in
-							doing the job right, even if it means taking a little extra time. Rushing to market and ignoring technical debt is a recipe for disaster, and I'm not willing to
-							compromise on quality.
+							I thrive in the space between technical possibility and practical reality. When I'm not coding,
+							I'm usually thinking about systems, exploring new ideas, or writing about the intersection of
+							technology and thoughtful design. Brisbane keeps me grounded, but my interests span wherever
+							good problems need solving.
 						</Typography>
 					</Grid>
 					<Grid width="595px" height="312px">
