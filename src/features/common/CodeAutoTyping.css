@@ -1,4 +1,9 @@
 .code-snippet pre {
 	min-height: 296px;
-	border-radius: 6px;
+	border-radius: 0 0 6px 6px;
+	margin-top: 0 !important;
+}
+
+.code-snippet {
+	position: relative;
 }

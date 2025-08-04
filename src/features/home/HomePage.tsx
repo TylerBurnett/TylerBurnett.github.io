@@ -29,21 +29,132 @@ export default function HomePage() {
 			</Box>
 
 			<ContentContainer ref={firstSectionRef} sectionIndex={1} title="Young and Aspiring">
-				<Grid container minWidth="100%" spacing={5} justifyContent="space-between">
-					<Grid maxWidth="800px">
-						<Typography variant="body1" component="p">
+				<Grid 
+					container 
+					minWidth="100%" 
+					spacing={6} 
+					justifyContent="space-between"
+					sx={{
+						background: 'linear-gradient(145deg, #F1F1F1 0%, #F8F8F8 50%, #F1F1F1 100%)',
+						borderRadius: '12px',
+						padding: { xs: 3, md: 4 },
+						boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+						position: 'relative',
+						'&::before': {
+							content: '""',
+							position: 'absolute',
+							top: 0,
+							left: 0,
+							right: 0,
+							bottom: 0,
+							borderRadius: '12px',
+							padding: '1px',
+							background: 'linear-gradient(145deg, rgba(0,0,0,0.1), transparent, rgba(0,0,0,0.05))',
+							mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+							maskComposite: 'xor'
+						}
+					}}
+				>
+					<Grid xs={12} lg={7} sx={{ 
+						display: 'flex', 
+						flexDirection: 'column', 
+						gap: 3,
+						position: 'relative'
+					}}>
+						<Typography 
+							variant="body1" 
+							component="p"
+							sx={{
+								lineHeight: 1.8,
+								fontSize: { xs: '1rem', md: '1.1rem' },
+								position: 'relative',
+								'&:hover': {
+									color: '#222222',
+									transition: 'color 0.3s ease'
+								}
+							}}
+						>
 							Hi there! I'm Tyler, a Full-Stack Developer based in Brisbane. Although I have only spent 3 years in a professional capacity, I've been developing my solutions at
 							home from as young as 13, and ten years later, I'm still writing code and engineering solutions. It's safe to say that I'm passionate about what I do, and I couldn't
 							be happier.
 						</Typography>
-						<Typography variant="body1" component="p">
+						<Typography 
+							variant="body1" 
+							component="p"
+							sx={{
+								lineHeight: 1.8,
+								fontSize: { xs: '1rem', md: '1.1rem' },
+								position: 'relative',
+								'&:hover': {
+									color: '#222222',
+									transition: 'color 0.3s ease'
+								}
+							}}
+						>
 							When it comes to my work, good discipline and engineering practice are paramount. I'm committed to delivering quality systems and user experiences, and I believe in
 							doing the job right, even if it means taking a little extra time. Rushing to market and ignoring technical debt is a recipe for disaster, and I'm not willing to
 							compromise on quality.
 						</Typography>
 					</Grid>
-					<Grid width="595px" height="312px">
-						<CodeAutoTyping text={codeSample} syntaxHighlighterProps={{ style: nord, wrapLongLines: true, children: "" }} language="javascript" />
+					<Grid xs={12} lg={5} sx={{ 
+						position: 'relative',
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'flex-start'
+					}}>
+						<Box sx={{
+							width: '100%',
+							maxWidth: '595px',
+							height: '312px',
+							position: 'relative',
+							borderRadius: '8px',
+							overflow: 'hidden',
+							boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+							'&:hover': {
+								transform: 'translateY(-2px)',
+								boxShadow: '0 8px 30px rgba(0,0,0,0.12)',
+								transition: 'all 0.3s ease'
+							},
+							'&::before': {
+								content: '""',
+								position: 'absolute',
+								top: 0,
+								left: 0,
+								right: 0,
+								height: '24px',
+								background: '#2E3440',
+								zIndex: 1,
+								display: 'flex',
+								alignItems: 'center'
+							},
+							'&::after': {
+								content: '"• • •"',
+								position: 'absolute',
+								top: '6px',
+								left: '12px',
+								color: '#88C0D0',
+								fontSize: '12px',
+								zIndex: 2,
+								fontFamily: 'monospace'
+							}
+						}}>
+							<CodeAutoTyping 
+								text={codeSample} 
+								syntaxHighlighterProps={{ 
+									style: nord, 
+									wrapLongLines: true, 
+									children: "",
+									customStyle: {
+										background: '#2E3440',
+										margin: 0,
+										padding: '24px 16px 16px 16px',
+										fontSize: '14px',
+										lineHeight: '1.5'
+									}
+								}} 
+								language="javascript" 
+							/>
+						</Box>
 					</Grid>
 				</Grid>
 			</ContentContainer>
