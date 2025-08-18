@@ -65,7 +65,7 @@ export default function HomePage() {
 							</Button>
 						</Grid>
 						<Typography variant="body1" component="p" textAlign={{ xs: "center", lg: "left" }} paddingTop={3}>
-							This resume was last updated on <b>8/03/2025</b>
+							This resume was last updated on <b>18/08/2025</b>
 						</Typography>
 					</ContentContainer>
 				</Grid>
