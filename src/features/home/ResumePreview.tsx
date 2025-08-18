@@ -39,6 +39,10 @@ export default function ResumePreview() {
 			width: "30vw",
 			height: "",
 		},
+		xl: {
+			width: "25vw",
+			height: "",
+		},
 	});
 
 	return (
