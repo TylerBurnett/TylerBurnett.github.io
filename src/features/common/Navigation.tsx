@@ -30,12 +30,10 @@ export default function Navigation({ scrollThreshold = 100 }: NavigationProps) {
       initial={{ y: 0, opacity: 1 }}
       animate={{
         backdropFilter: isScrolled ? `blur(${blurAmount}px)` : "blur(0px)",
-        WebkitBackdropFilter: isScrolled ? `blur(${blurAmount}px)` : "blur(0px)",
         background: isScrolled ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0)",
       }}
       transition={{
         backdropFilter: { duration: blurEaseIn, ease: "easeIn" },
-        WebkitBackdropFilter: { duration: blurEaseIn, ease: "easeIn" },
         background: { duration: blurEaseIn, ease: "easeIn" },
       }}
     >

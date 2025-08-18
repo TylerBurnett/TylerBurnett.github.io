@@ -31,7 +31,7 @@ function RollingTextTypography({ text, delay = 0, duration = 0.5 }: RollingTextT
 			transition: {
 				delay: i * 0.05 + delay,
 				duration: duration,
-				type: "spring",
+				type: "spring" as const,
 				stiffness: 100,
 			},
 		}),
