@@ -1,6 +1,7 @@
 import { useTheme } from "@mui/material";
 import { type P5CanvasInstance, ReactP5Wrapper, type Sketch } from "@p5-wrapper/react";
 import { CalculateCanvasSize } from "../../helpers/dynamicCanvasScaler";
+import { createNoise3D } from 'simplex-noise';
 
 const breakPoints = {
 	xs: {
@@ -16,7 +17,8 @@ const breakPoints = {
 export default function CircleGridArt() {
 	const theme = useTheme();
 	const sketch: Sketch = (p5: P5CanvasInstance) => {
-		const noiseResolution = 2;
+        const noise3D = createNoise3D();
+		const noiseResolution = 500;
 		const noiseMagnitude = 5;
 		const gridSpacing = 50; // spacing between circles in the grid
 		const cursorRadius = 50; // radius of cursor effect
@@ -48,7 +50,8 @@ export default function CircleGridArt() {
 
 		p5.draw = () => {
 			p5.background(theme.palette.background.default);
-			time += 0.01;
+			time += 0.006;
+
 			const mouse = p5.createVector(p5.mouseX, p5.mouseY);
 			// Calculate the horizontal and vertical offset of the grid
 			const xOffset = (p5.width - cols * gridSpacing - circleSize) / 2;
@@ -59,7 +62,7 @@ export default function CircleGridArt() {
 					const x = circleSpacing * j + circleSpacing / 2 + xOffset;
 					const y = circleSpacing * i + circleSpacing / 2 + yOffset;
 					const distance = p5.dist(x, y, mouse.x, mouse.y);
-					const noiseVal = p5.noise(x / noiseResolution, y / noiseResolution, time) * noiseMagnitude;
+					const noiseVal = noise3D(x / noiseResolution, y / noiseResolution, time) * noiseMagnitude;
 
 					// Make sure the circle is within canvas bounds
 					if (x + circleSize / 2 > p5.width || x - circleSize / 2 < 0 || y + circleSize / 2 > p5.height || y - circleSize / 2 < 0) {
