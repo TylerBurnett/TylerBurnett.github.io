@@ -50,7 +50,7 @@ export default function HomePage() {
 				</Grid>
 			</ContentContainer>
 
-			<Grid container justifyContent="space-around" alignItems="top">
+			<Grid container justifyContent="space-around" alignItems="top" pb={10}>
 				<Grid order={{ xs: 2, lg: 1 }}>
 					<ResumePreview />
 				</Grid>
@@ -65,7 +65,7 @@ export default function HomePage() {
 							</Button>
 						</Grid>
 						<Typography variant="body1" component="p" textAlign={{ xs: "center", lg: "left" }} paddingTop={3}>
-							This resume was last updated on <b>18/08/2025</b>
+							This resume was last updated on <b>05/09/2025</b>
 						</Typography>
 					</ContentContainer>
 				</Grid>
